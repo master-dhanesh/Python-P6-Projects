@@ -1,27 +1,34 @@
-from random import randint
+# Rock Paper Scissor
 
-number_range = input("Enter Number range seperated by space: ").split()
-if  len(number_range) == 2:
-    start = int(number_range[0])
-    end = int(number_range[1])
-    random_number = randint(start, end)
-    chances = 5
+import random
 
-    while chances > 0:
-        user_input = int(input("Guess the number: "))
-        if user_input > end or user_input < start:
-            print("Chutiya hai kya...")
-            continue
-        else:
-            if user_input > random_number:
-                print("Number is smaller...better luck next time💗")
-            elif user_input < random_number:
-                print("Number is greater...better luck next time💗")
+while True:
+    options = ['rock', 'paper', 'scissor']
+    computer = random.choice(options)
+    user = input("Your Choice (rock, paper, scissor): ").strip().lower()
+    print("Computer input: ", computer)
+    if user == 'rock' or user == 'paper' or user == 'scissor':
+        if (computer == user):
+            print("Chutiya ho kya bc 😊....")
+        elif (computer == 'rock'):
+            if user == 'paper':
+                print('User wins...')
             else:
-                print("Gotcha...Purus-kaar milega tumhe...")
-                break
-            chances = chances - 1
-            if chances == 0:
-                print("Tumse na ho paaega...💩")
-else:
-    print("Dekh kr likh bhadwe...😊")
+                print('Computer wins...')
+        elif (computer == 'paper'):
+            if user == 'scissor':
+                print('User wins...')
+            else:
+                print('Computer wins...')
+        elif (computer == 'scissor'):
+            if user == 'rock':
+                print('User wins...')
+            else:
+                print('Computer wins...')
+    else:
+        print('bahggg makade😊...!')
+    print("""press 0 to exit and press any to continue.""", end=" ")
+    if(input() == '0'):
+        print("kyuu snake smell kr gyaa hai kyaaa...🐍")
+        break
+
