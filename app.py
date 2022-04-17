@@ -2,12 +2,18 @@
 
 import random
 
-while True:
+def userinput():
+    user = input("Your Choice (rock, paper, scissor): ").strip().lower()
+    return user
+
+def computerinput():
     options = ['rock', 'paper', 'scissor']
     computer = random.choice(options)
-    user = input("Your Choice (rock, paper, scissor): ").strip().lower()
-    print("Computer input: ", computer)
+    return computer
+
+def rockpaperscissor(user, computer):
     if user == 'rock' or user == 'paper' or user == 'scissor':
+        print("Computer input: ", computer)
         if (computer == user):
             print("Chutiya ho kya bc 😊....")
         elif (computer == 'rock'):
@@ -27,8 +33,16 @@ while True:
                 print('Computer wins...')
     else:
         print('bahggg makade😊...!')
+
+def exitgame():
     print("""press 0 to exit and press any to continue.""", end=" ")
-    if(input() == '0'):
+    if (input() == '0'):
         print("kyuu snake smell kr gyaa hai kyaaa...🐍")
-        break
+        exit(0)
+
+while True:
+    user = userinput()
+    computer = computerinput()
+    rockpaperscissor(user,computer)
+    exitgame()
 
